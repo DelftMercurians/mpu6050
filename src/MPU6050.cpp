@@ -65,13 +65,16 @@ MPU6050_Base::MPU6050_Base(uint8_t address, void *wireObj):devAddr(address), wir
 void MPU6050_Base::initialize() {
     setClockSource(MPU6050_CLOCK_PLL_XGYRO);
 
-    setFullScaleGyroRange(MPU6050_GYRO_FS_250);
-    gyroscopeResolution = 250.0 / 16384.0;
+    setFullScaleGyroRange(MPU6050_GYRO_FS_500);
+    gyroscopeResolution = 500.0 / 16384.0;
 
     setFullScaleAccelRange(MPU6050_ACCEL_FS_2);
     accelerationResolution = 2.0 / 16384.0;
 
-    setSleepEnabled(false); // thanks to Jack Elston for pointing this one out!
+    setDMPEnabled(false);
+    setDLPFMode(0);
+
+    setSleepEnabled(false); 
 }
 
 /** Power on and prepare for general usage.
