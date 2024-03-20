@@ -71,8 +71,8 @@ void MPU6050_Base::initialize() {
     setFullScaleAccelRange(MPU6050_ACCEL_FS_2);
     accelerationResolution = 2.0 / 16384.0;
 
-    setDMPEnabled(false);
-    setDLPFMode(0);
+    setDMPEnabled(true);
+    setDLPFMode(1);
 
     setSleepEnabled(false); 
 }
